@@ -1,1 +1,23 @@
 syntax = "proto3";
+
+package proto;
+
+service SyncData {
+  rpc getRealtimeLocation (User) returns (stream Location) {}
+  rpc sendRealtimeLocation (stream Location) returns (Error) {}
+}
+
+message User {
+  string id = 1;
+}
+
+message Location {
+  float lat = 1;
+  float lng = 2;
+  string userId = 3;
+}
+
+message Error {
+  bool success = 1;
+  string message = 2;
+}
