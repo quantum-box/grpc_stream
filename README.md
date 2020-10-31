@@ -7,3 +7,9 @@ Flutter モバイルアプリからgRPCを使って
 - Client streaming RPC
 
 の実装をする
+
+### generate from protocol buffer
+
+```shell
+protoc --proto_path ./idl/proto/ --go_out=plugins=grpc:./server/pb stream.proto
+```
